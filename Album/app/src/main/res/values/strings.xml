@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Album</string>
+    <string name="dialog_title">Information</string>
+    <string name="no_network_connection">A network connection is required to complete this task.
+        Please switch on Wi-Fi or cellular network.</string>
+    <string name="progress_bar_message">Album list is being downloaded. "\n"Please wait…</string>
+    <string name="thank_you_message">Thanks you for selecting this album.</string>
+    <string name="no_offline_file">Offline album list is not available.</string>
+    <string name="connection_time_out">Connection Time Out.</string>
+    <string name="url_album">https://jsonplaceholder.typicode.com/albums</string>
+    <string name="unknown_error_message">Something wrong happens during downloading data.
+        "\n"Please try after some time.</string>
+    <string name="no_data_available">Album list is not available. Please try after sometime.</string>
+</resources>
