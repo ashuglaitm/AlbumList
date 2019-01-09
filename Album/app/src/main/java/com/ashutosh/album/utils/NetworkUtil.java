@@ -2,37 +2,31 @@ package com.ashutosh.album.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-
+import android.net.NetworkInfo;
 
 public final class NetworkUtil {
 
     private NetworkUtil() {
-        new IllegalStateException("Utility Class");
     }
 
-    private static ConnectivityManager mConnectivityManager = null;
     /**
      * Return is network available
      *
      * @return true if available else false
      */
     public static boolean isNetworkAvailable(Context context) {
-        return isWifiAvailable(context) || isMobileDataAvailable(context);
-    }
-
-    private static boolean isWifiAvailable(Context context) {
-        return getNetworkService(context).getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected();
-    }
-
-    private static boolean isMobileDataAvailable(Context context) {
-        return getNetworkService(context).getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected();
-    }
-
-    private static ConnectivityManager getNetworkService(Context context) {
-        if (mConnectivityManager == null) {
-            mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            return mConnectivityManager;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            switch (networkInfo.getType()) {
+                case ConnectivityManager.TYPE_MOBILE:
+                case ConnectivityManager.TYPE_WIFI:
+                    return true;
+                default:
+                    break;
+            }
         }
-        return mConnectivityManager;
+        return false;
     }
 }

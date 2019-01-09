@@ -27,4 +27,14 @@ dependencies {
     testImplementation "org.powermock:powermock-core:1.7.3"
     testImplementation "org.powermock:powermock-module-junit4:1.7.3"
     testImplementation "org.powermock:powermock-api-mockito2:1.7.3"
+    androidTestImplementation "com.android.support.test:runner:1.0.2"
+    androidTestImplementation "com.android.support.test:rules:1.0.2"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation ("com.android.support.test.espresso:espresso-contrib:3.0.2"){
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v7'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
 }

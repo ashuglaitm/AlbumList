@@ -19,7 +19,6 @@ import java.io.IOException;
 public final class FileUtil {
 
     private FileUtil() {
-        new IllegalStateException("Utility class");
     }
 
     /**
